@@ -1,0 +1,5 @@
+[nash]
+database        = 'dbname'
+username        = 'dbusername'
+password        = 'dbpassword'
+dailyBackupHour = 22
