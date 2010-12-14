@@ -16,8 +16,8 @@ $config = parse_ini_file('nash.ini');
 // Build hourly file file name
 $fnameHourly = 'Hourly-'.$hour.'.sql';
 $fnameDaily = 'Daily-'.$year.'-'.$month.'-'.$day.'-'.$hour.'.sql';
-$basedirHourly = 'hourly';
-$basedirDaily  = 'daily';
+$basedirHourly = dirname(__FILE__).'/hourly';
+$basedirDaily  = dirname(__FILE__).'/daily';
 
 // Make todays directory if it does not exist
 if (!is_dir($basedirHourly.'/'.$day)) {
