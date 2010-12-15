@@ -8,7 +8,7 @@ $year       = date('Y');
 $month      = date('m');
 $day        = date('d');
 $hour       = date('H');
-$yesterday  = date('d', time() - 24*60*60);
+$yesterday  = date('d', time() - 48*60*60);
 
 // Load configs
 $config = parse_ini_file('nash.ini');
@@ -18,6 +18,15 @@ $fnameHourly = 'Hourly-'.$hour.'.sql';
 $fnameDaily = 'Daily-'.$year.'-'.$month.'-'.$day.'-'.$hour.'.sql';
 $basedirHourly = dirname(__FILE__).'/hourly';
 $basedirDaily  = dirname(__FILE__).'/daily';
+
+// Make sure base directories are present and if not create them
+if (!is_dir($basedirHourly)) {
+	mkdir($basedirHourly), 0744);
+}
+
+if (!is_dir($basedirDaily)) {
+	mkdir($basedirDaily, 0744);
+}
 
 // Make todays directory if it does not exist
 if (!is_dir($basedirHourly.'/'.$day)) {
