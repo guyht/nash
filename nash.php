@@ -21,7 +21,7 @@ $basedirDaily  = dirname(__FILE__).'/daily';
 
 // Make sure base directories are present and if not create them
 if (!is_dir($basedirHourly)) {
-	mkdir($basedirHourly), 0744);
+	mkdir($basedirHourly, 0744);
 }
 
 if (!is_dir($basedirDaily)) {
