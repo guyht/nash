@@ -66,9 +66,9 @@ if ($hour == $config['dailyBackupHour']) {
 
 	// Now send to AmazonS3 if enabled
 	if ($config['use_s3'] == 'true') {
-		require_once dirname(__FILE__).'aws-sdk-for-php/sdk.class.php';
+		require_once dirname(__FILE__).'/aws-sdk-for-php/sdk.class.php';
 		$s3 = new AmazonS3($config['aws_key'], $config['aws_secret_key']);
-		$bucket = 'nash-backup/daily';
+		$bucket = $config['bucket_prefix'].'.nash-backup.daily';
 		// Check to see if bucket already exists
 		$exists = $s3->if_bucket_exists($bucket);
 		if (!$exists) {
